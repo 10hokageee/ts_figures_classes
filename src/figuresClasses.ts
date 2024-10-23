@@ -18,7 +18,7 @@ export class Triangle implements Figure {
   ) {
     if (a <= 0 || b <= 0 || c <= 0) {
       throw new Error(
-        'The side of the figure cannot be less than or equal to zero',
+        `The side of the figure cannot be less than or equal to zero. Invalid values: a = ${a}, b = ${b}, c = ${c}`,
       );
     }
 
@@ -26,7 +26,7 @@ export class Triangle implements Figure {
     const sumLength: number = a + b + c;
 
     if (maxLength >= sumLength - maxLength) {
-      throw new Error("Sides 1, 2, and 3 can't form a triangle");
+      throw new Error(`Sides ${a}, ${b}, and ${c} can't form a triangle`);
     }
   }
 
@@ -51,7 +51,9 @@ export class Circle implements Figure {
     public radius: number,
   ) {
     if (radius <= 0) {
-      throw new Error('The radius of the circle cannot be zero or less');
+      throw new Error(
+        `The radius of the circle cannot be zero or less. Invalid radius: ${radius}`,
+      );
     }
   }
 
@@ -70,7 +72,7 @@ export class Rectangle implements Figure {
   ) {
     if (width <= 0 || height <= 0) {
       throw new Error(
-        'The side of the figure cannot be less than or equal to zero',
+        `The side of the figure cannot be less than or equal to zero. Invalid dimensions: width = ${width}, height = ${height}`,
       );
     }
   }
